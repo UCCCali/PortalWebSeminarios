@@ -1,0 +1,86 @@
+azulOscuro = #0B0b61
+grisFondo = #E8E8E8
+azulClaro = #22BCE0
+tamanoLetra = 16px
+naranja = #DD4F24
+
+body
+	background grisFondo
+	font-family Arial
+	font-size tamanoLetra
+	
+	footer
+		background naranja
+		color white
+		text-align center
+		padding 0.8em 0
+		
+		h3
+			font-size 14px
+			font-weight normal
+			
+			&:after
+				content " --"
+				
+			&:before
+				content "-- "			
+	
+	header
+		background azulOscuro
+		color white	
+		overflow hidden
+		position relative
+		
+		.header-avatar
+			position absolute
+			right 30px
+			top 1px
+			
+			img
+				border-radius 60%
+				width 70px
+		
+		.header-logo		
+			float left			
+			padding 1em
+			width 100px				
+			
+			img
+				border-right 2px solid white
+				height 70px			
+				padding 0.8em
+				width 80px
+				
+		.header-titulo
+			font-size 16px
+			margin 50px 0 0 200px
+		
+	nav
+		background azulClaro
+		border-left 10px solid white	
+		
+		.menu-ppal
+			height 40px
+			line-height 40px
+			margin 0
+			padding 0
+			
+			li
+				display inline-block
+				
+				a
+					color white
+					display inline-block					
+					padding 0 1em
+					text-decoration none
+					
+					&:hover
+						background rgba(black, 0.1)
+
+						
+										
+		
+	
+
+
+			
