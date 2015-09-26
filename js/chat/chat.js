@@ -3,7 +3,37 @@ $(function(){
 	var objFirebase = new Firebase("https://chatucc.firebaseio.com/");
 
 
-	$('input[type=submit]').click(clickEnvio);
+	$('#btnEnviarMsj').click(clickEnvio);
+
+	$('#btnLoginTwitter').click(clickAutenticarTwitter);
+
+	$('#btnLoginFacebook').click(clickAutenticarFB);	
+
+	function clickAutenticarTwitter(){
+
+		objFirebase.authWithOAuthPopup("twitter", function(error, authData){
+
+			if (error) {
+				console.log("Login Failed", error);
+			}else{
+				console.log("Exito!!!", authData);
+			}
+
+		});
+	}
+
+	function clickAutenticarFB(){
+
+		objFirebase.authWithOAuthPopup("facebook", function(error, authData){
+
+			if (error) {
+				console.log("Login Failed", error);
+			}else{
+				console.log("Exito!!!", authData);
+			}
+
+		});
+	}
 
 
 	function clickEnvio(){		
@@ -45,7 +75,7 @@ $(function(){
 						<label class="fecha"> \
 							26/09/2015 \
 						</label> \
-						<a class="estrellita" href="#">	##	\
+						<a class="estrellita" href="#">	\
 						</a> \
 					</div> \
 				</div>		\
