@@ -27,11 +27,11 @@ $(function(){
 					console.log("Exito!!!", authData);				
 					sessionStorage.setItem('token', authData.token);
 					sessionStorage.setItem('profileImageURL', authData.facebook.profileImageURL);
-					sessionStorage.setItem('displayName', authData.twitter.displayName);
-					sessionStorage.setItem('username', authData.twitter.displayName);
+					sessionStorage.setItem('displayName', authData.facebook.displayName);
+					sessionStorage.setItem('username', authData.facebook.displayName);
 				}
 				
-				window.location.href = "../Pages/ppal.html"
+				window.location.href = "Pages/ppal.html"
 			}
 
 		});

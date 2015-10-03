@@ -3,11 +3,21 @@ $(function(){
 	var objFirebase = new Firebase("https://chatucc.firebaseio.com/");
 
 	$('#btnEnviarMsj').click(clickEnvio);
+	$('.estrellita').click(clickMsgImportante);
 	$('#imgAvatar').attr('src', sessionStorage.getItem('profileImageURL'));	
+
+	console.log(sessionStorage.getItem('profileImageURL'));
 
 	$(".cont-mensaje-timeline").animate({		
         scrollTop: $(document).height()
     }, 'slow');
+    
+
+    function clickMsgImportante(){
+    	console.log("entra");
+    	//$('.estrellita');
+    	console.log($('.estrellita'));
+    }
 
 	function clickEnvio(){		
 		var mensaje = $('#inMensaje').val();
@@ -27,6 +37,11 @@ $(function(){
 		var registro = data.val();
 		var plantilla = getPlantilla(registro.autor,registro.mensaje);		
 		$('.cont-mensaje-timeline').append(plantilla);
+		var fntSelEstrella = seleccionarEstrella(false);
+		$(plantilla).find(".estrellita").click(function(event){
+					event.preventDefault();
+					fntSelEstrella.cambiarEstado();					
+		});		
 	});
 
 	function getPlantilla(autor, mensaje){
@@ -48,7 +63,7 @@ $(function(){
 						<label class="fecha"> \
 							26/09/2015 \
 						</label> \
-						<a class="estrellita" href="#">	\
+						<a class="estrellita" href="">	\
 						</a> \
 					</div> \
 				</div>		\
@@ -56,5 +71,24 @@ $(function(){
 
 		return plantilla;
 	}
+
+	function seleccionarEstrella(estado){
+
+		var estadoTmp = estado || false;
+
+		return{
+			cambiarEstado: function(){
+				console.log("Cambiando Estado");
+				if (estadoTmp) {
+					estadoTmp = false;					
+				}
+				else{
+					estadoTmp = true;
+				}
+
+				return estadoTmp
+			}
+		}
+	}	
 
 });
