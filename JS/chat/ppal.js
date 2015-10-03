@@ -2,39 +2,12 @@ $(function(){
 
 	var objFirebase = new Firebase("https://chatucc.firebaseio.com/");
 
-
 	$('#btnEnviarMsj').click(clickEnvio);
+	$('#imgAvatar').attr('src', sessionStorage.getItem('profileImageURL'));	
 
-	$('#btnLoginTwitter').click(clickAutenticarTwitter);
-
-	$('#btnLoginFacebook').click(clickAutenticarFB);	
-
-	function clickAutenticarTwitter(){
-
-		objFirebase.authWithOAuthPopup("twitter", function(error, authData){
-
-			if (error) {
-				console.log("Login Failed", error);
-			}else{
-				console.log("Exito!!!", authData);
-			}
-
-		});
-	}
-
-	function clickAutenticarFB(){
-
-		objFirebase.authWithOAuthPopup("facebook", function(error, authData){
-
-			if (error) {
-				console.log("Login Failed", error);
-			}else{
-				console.log("Exito!!!", authData);
-			}
-
-		});
-	}
-
+	$(".cont-mensaje-timeline").animate({		
+        scrollTop: $(document).height()
+    }, 'slow');
 
 	function clickEnvio(){		
 		var mensaje = $('#inMensaje').val();
@@ -83,9 +56,5 @@ $(function(){
 
 		return plantilla;
 	}
-
-
-
-
 
 });
